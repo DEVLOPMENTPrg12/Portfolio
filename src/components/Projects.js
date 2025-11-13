@@ -9,7 +9,7 @@ const projects = [
       "FindYourHouse is a modern web application built with React.js and Firebase, designed to help users search, filter, and book rental houses across different cities in Morocco.",
     image: "/Macbook-Air-localhost (2).png",
     github: "https://github.com/DEVLOPMENTPrg12/find-your-house",
-    live: "https://findyourhouse.vercel.app/",
+    live: "https://find-your-house-udx1.vercel.app/",
   },
   {
     title: "Bilal Clothing",
