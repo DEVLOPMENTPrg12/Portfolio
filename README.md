@@ -9,12 +9,12 @@ I build modern, responsive, and professional websites with clean and maintainabl
 - 🌍 Location: Laâyoune, Morocco  
 - 📧 Email: [alallambilal13@gmail.com](mailto:alallambilal13@gmail.com)  
 - 📱 Phone: [+212 617 858 094](tel:+212617858094)  
-- 💼 LinkedIn: [Bilal Elallam](https://www.linkedin.com/in/bilal-alallam)
+- 💼 LinkedIn: [Bilal Elallam](https://www.linkedin.com/in/bilal-alallam)  
 
 ## 🔹 Skills
-- Frontend: React.js, Tailwind CSS, HTML5, CSS3, JavaScript  
-- Backend: Node.js, Express.js, MongoDB, MySQL  
-- Tools: Git, GitHub, Postman, Canva, Adobe Photoshop  
+- **Frontend:** React.js, Tailwind CSS, HTML5, CSS3, JavaScript  
+- **Backend:** Node.js, Express.js, MongoDB, MySQL  
+- **Tools:** Git, GitHub, Postman, Canva, Adobe Photoshop  
 
 ## 🔹 Projects
 ### FindYourHouse
@@ -34,4 +34,5 @@ Feel free to reach out via **email**, **phone**, or **LinkedIn**.
 
 ---
 
-> Portfolio built with ❤️ by Bilal Elallam
+> Portfolio built with ❤️ by **Bilal Elallam**  
+> Live Portfolio: [Click here](https://portfolio-3a8h.vercel.app/)
