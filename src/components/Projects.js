@@ -20,6 +20,18 @@ const projects = [
     github: "https://github.com/DEVLOPMENTPrg12/Bilal-Clothing",
     live: "https://bilal-clothing-e8zn.vercel.app/",
   },
+  
+  {
+  title: "Supermarket Stock & Sales Management System",
+  category: ["React.js", "Node.js", "Express.js", "MongoDB"],
+  description:
+"A complete stock and sales management system for a supermarket, featuring a dashboard, POS, inventory with barcode support, supplier/client tracking, expiration alerts, and role-based authentication.",
+  image: "/Macbook-Air-localhost (3).png",
+  github: "https://github.com/DEVLOPMENTPrg12/supermarket-management",
+    live: "https://bilal-clothing-e8zn.vercel.app/",
+  
+}
+
 ];
 
 export default function Projects({ darkMode }) {
