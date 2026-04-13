@@ -21,14 +21,18 @@ export default function About({ darkMode }) {
               darkMode ? "bg-blue-400" : "bg-blue-500"
             }`}
           ></div>
+          
+          {/* --- HNA L-TGH'YIR --- */}
           <img
             src="/Gemini_Generated_Image_8ugg0z8ugg0z8ugg.png"
             alt="about"
-            className="relative w-72 h-72 md:w-96 md:h-96 rounded-full border-4 object-cover shadow-lg"
+            className="relative w-72 h-72 md:w-96 md:h-96 rounded-full border-4 object-cover object-top shadow-lg"
             style={{
               borderColor: darkMode ? "#60a5fa" : "#3b82f6", // Tailwind blue-400 / blue-500
             }}
           />
+          {/* --- END TGH'YIR --- */}
+
         </div>
       </motion.div>
 
@@ -51,7 +55,6 @@ export default function About({ darkMode }) {
         </h3>
         <p className={`${darkMode ? "text-gray-400" : "text-gray-700"} leading-relaxed`}>
          I’m a passionate Full Stack Web Developer specializing in building modern, high-performance web applications using React.js for the frontend and Node.js for the backend. I focus on creating clean, maintainable code and delivering seamless user experiences. My goal is to transform ideas into scalable digital products that combine design, functionality, and efficiency.
-
         </p>
 
         {/* Info Grid */}
