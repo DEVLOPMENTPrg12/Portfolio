@@ -89,7 +89,7 @@ export default function Hero({ darkMode }) {
         <div className="relative">
           <div className="absolute inset-0 rounded-full bg-blue-500 blur-3xl opacity-20"></div>
           <img
-            src="/c42495dd-8a73-40e0-8d3d-ef9ad2ef84ed.jpeg"
+            src="/Gemini_Generated_Image_9br8bc9br8bc9br8.png"
             alt="Bilal"
             className="relative w-72 h-72 md:w-96 md:h-96 object-cover rounded-full shadow-lg border-4 border-blue-400"
           />
