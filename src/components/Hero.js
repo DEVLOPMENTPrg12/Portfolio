@@ -69,13 +69,12 @@ export default function Hero({ darkMode }) {
             Contact Me
           </a>
           <a
-  href="/BilalElallam (2).pdf"
-  download="BilalElallam (2).pdf"
-  className="border border-blue-500 hover:bg-blue-500 hover:text-white text-blue-500 font-medium px-6 py-3 rounded-full transition"
->
- Download CV
-</a>
-
+            href="/BilalElallam (2).pdf"
+            download="BilalElallam (2).pdf"
+            className="border border-blue-500 hover:bg-blue-500 hover:text-white text-blue-500 font-medium px-6 py-3 rounded-full transition"
+          >
+            Download CV
+          </a>
         </motion.div>
       </motion.div>
 
@@ -88,11 +87,15 @@ export default function Hero({ darkMode }) {
       >
         <div className="relative">
           <div className="absolute inset-0 rounded-full bg-blue-500 blur-3xl opacity-20"></div>
+          
+          {/* --- HNA L-TGH'YIR --- */}
           <img
             src="/Gemini_Generated_Image_9br8bc9br8bc9br8.png"
             alt="Bilal"
-            className="relative w-72 h-72 md:w-96 md:h-96 object-cover rounded-full shadow-lg border-4 border-blue-400"
+            className="relative w-72 h-72 md:w-96 md:h-96 object-cover object-top rounded-full shadow-lg border-4 border-blue-400"
           />
+          {/* --- END TGH'YIR --- */}
+
         </div>
       </motion.div>
     </section>
