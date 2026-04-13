@@ -22,7 +22,7 @@ export default function About({ darkMode }) {
             }`}
           ></div>
           <img
-            src="/Gemini_Generated_Image_qcr3e4qcr3e4qcr3.png"
+            src="/Gemini_Generated_Image_8ugg0z8ugg0z8ugg.png"
             alt="about"
             className="relative w-72 h-72 md:w-96 md:h-96 rounded-full border-4 object-cover shadow-lg"
             style={{
