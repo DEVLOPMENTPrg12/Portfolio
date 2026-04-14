@@ -1,133 +1,123 @@
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin } from "react-icons/fa"; // Beddelt l-icon l LinkedIn
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const projects = [
   {
     title: "LOGISTICS PRO",
-    category: ["React.js", "Node.js", "Express.js", "MongoDB ","Tailwind CSS"],
+    category: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
     description:
-      "A comprehensive logistics solution with a dual-engine architecture: an Admin Command Center for total visibility and a Driver's Digital Hub for simplified delivery updates and earnings tracking.",
+      "A high-performance logistics solution featuring a dual-engine architecture for real-time delivery tracking and role-based management.",
     image: "/Macbook-Air-localhost.png",
     github: "https://github.com/DEVLOPMENTPrg12/LOGISTICS-PRO",
-    linkedin: "https://www.linkedin.com/posts/bilal-el-allam-468131371_fullstackdeveloper-webdevelopment-logisticstech-activity-7441971308332011520-Fbg6?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFwImFABm3dtZnPaXDeqSfh5RUyT9k84l4Y", // Zid l-link d l-post hna
+    linkedin: "https://www.linkedin.com/posts/bilal-el-allam-468131371_fullstackdeveloper-webdevelopment-logisticstech-activity-7441971308332011520-Fbg6",
   },
   {
     title: "Bilal Clothing",
-    category: ["React.js", "Node.js", "Express.js", "MongoDB"],
+    category: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
     description:
-      "A full-featured e-commerce platform for clothing, featuring a sleek user interface and a professional admin dashboard for managing inventory and orders.",
+      "A premium clothing store experience with a custom admin dashboard for seamless inventory control and sales analytics.",
     image: "/Macbook-Air-bilal-clothing-e8zn.vercel.app.png",
     github: "https://github.com/DEVLOPMENTPrg12/Bilal-Clothing",
-    linkedin: "#", 
+    linkedin: "#",
   },
   {
     title: "Supermarket Management",
-    category: ["React.js", "Node.js", "Express.js", "MongoDB"],
+    category:["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
     description:
-      "Complete stock and sales management system featuring a POS interface, barcode support, supplier tracking, and role-based authentication.",
+      "Enterprise-grade stock management featuring barcode integration, automated reporting, and intuitive sales tracking.",
     image: "/Macbook-Air-localhost (3).png",
     github: "https://github.com/DEVLOPMENTPrg12/supermarket-management",
-    linkedin: "https://www.linkedin.com/posts/bilal-el-allam-468131371_reactjs-nodejs-mongodb-activity-7402816078755561472-d3w-?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFwImFABm3dtZnPaXDeqSfh5RUyT9k84l4Y",
+    linkedin: "https://www.linkedin.com/posts/bilal-el-allam-468131371_reactjs-nodejs-mongodb-activity-7402816078755561472-d3w-",
   }
 ];
 
 export default function Projects({ darkMode }) {
-  const sectionBg = darkMode ? "bg-gray-900" : "bg-gray-100";
-  const textColor = darkMode ? "text-white" : "text-gray-900";
-  const subText = darkMode ? "text-gray-300" : "text-gray-700";
-  const cardBg = darkMode ? "bg-gray-800" : "bg-white";
-  const cardHover = darkMode ? "hover:bg-gray-700" : "hover:bg-gray-200";
-  const borderColor = darkMode ? "border-gray-700" : "border-gray-300";
-
   return (
-    <section
-      id="projects"
-      className={`${sectionBg} ${textColor} py-24 px-6 md:px-20 transition-colors duration-300`}
-    >
-      {/* Section Header */}
-      <div className="text-center mb-20 relative">
-        <h1 className="text-[6rem] font-extrabold opacity-10 absolute inset-x-0 top-8 z-0 select-none text-gray-800 hidden md:block">
-          Projects
-        </h1>
-        <h2
-          className={`text-4xl md:text-5xl font-bold mb-4 ${
-            darkMode ? "text-blue-400" : "text-blue-500"
-          } relative z-10`}
+    <section id="projects" className={`py-24 px-6 md:px-20 transition-colors duration-500 ${darkMode ? "bg-[#0b0f1a]" : "bg-gray-50"}`}>
+      
+      {/* Section Header with Gradient Underline */}
+      <div className="text-center mb-20">
+        <motion.span 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          className="text-blue-500 font-bold tracking-[0.2em] uppercase text-sm"
         >
-          My Projects
+          Portfolio
+        </motion.span>
+        <h2 className={`text-4xl md:text-6xl font-black mt-3 mb-6 ${darkMode ? "text-white" : "text-gray-900"}`}>
+          Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400">Projects</span>
         </h2>
-        <p className={`${subText} relative z-10 max-w-2xl mx-auto`}>
-          Check out my work—from full-stack systems to modern web applications.
-        </p>
+        <div className="h-1.5 w-24 bg-blue-500 mx-auto rounded-full"></div>
       </div>
 
       {/* Projects Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {projects.map((project, i) => (
           <motion.div
             key={i}
-            className={`${cardBg} rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 border ${borderColor} ${cardHover} flex flex-col h-full`}
-            whileHover={{ y: -5 }}
-            initial={{ opacity: 0, y: 60 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: i * 0.1 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: i * 0.1 }}
+            className={`group relative rounded-3xl overflow-hidden border transition-all duration-500 ${
+              darkMode 
+                ? "bg-[#161b2c]/50 border-gray-800 hover:border-blue-500/50 shadow-2xl shadow-blue-500/5" 
+                : "bg-white border-gray-200 hover:border-blue-400 shadow-xl"
+            }`}
           >
-            {/* Project Image */}
-            <div className="relative w-full h-52 md:h-60 overflow-hidden bg-black/5">
+            {/* Image Container with Overlay */}
+            <div className="relative h-64 overflow-hidden">
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-full object-contain"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                 <p className="text-white text-sm font-medium">View detailed case study</p>
+              </div>
             </div>
 
-            {/* Project Details */}
-            <div className="p-6 flex flex-col flex-grow">
-              <div className="flex-grow">
-                <h3 className={`text-2xl font-semibold mb-2 ${textColor}`}>
-                  {project.title}
-                </h3>
-
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.category.map((tech, idx) => (
-                    <span
-                      key={idx}
-                      className="text-[10px] font-bold px-2 py-1 rounded-md bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 uppercase"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                <p className={`${subText} text-sm mb-6 leading-relaxed`}>
-                  {project.description}
-                </p>
+            {/* Content Area */}
+            <div className="p-8">
+              <div className="flex flex-wrap gap-2 mb-4">
+                {project.category.map((tech, idx) => (
+                  <span key={idx} className={`text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-wider ${
+                    darkMode ? "bg-blue-500/10 text-blue-400" : "bg-blue-50 text-blue-600"
+                  }`}>
+                    {tech}
+                  </span>
+                ))}
               </div>
 
-              {/* Buttons Area */}
-              <div className="flex justify-between items-center gap-4 mt-4 pt-4 border-t border-gray-700/10 dark:border-gray-200/10">
+              <h3 className={`text-2xl font-bold mb-3 ${darkMode ? "text-white" : "text-gray-900"}`}>
+                {project.title}
+              </h3>
+              
+              <p className={`text-sm leading-relaxed mb-8 h-20 overflow-hidden ${darkMode ? "text-gray-400" : "text-gray-600"}`}>
+                {project.description}
+              </p>
+
+              {/* Action Buttons */}
+              <div className="flex gap-4">
                 <a
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center justify-center gap-2 flex-1 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 ${
-                    darkMode
-                      ? "bg-gray-700 hover:bg-gray-600 text-white"
-                      : "bg-gray-200 hover:bg-gray-300 text-gray-900"
+                  className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm transition-all ${
+                    darkMode 
+                      ? "bg-gray-800 text-white hover:bg-gray-700" 
+                      : "bg-gray-100 text-gray-900 hover:bg-gray-200"
                   }`}
                 >
-                  <FaGithub className="text-lg" /> Code
+                  <FaGithub size={18} /> Source
                 </a>
-                
-                {/* LinkedIn Button f blas l-Live Demo */}
                 <a
                   href={project.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 flex-1 px-4 py-2.5 rounded-xl text-sm font-semibold bg-[#0077b5] hover:bg-[#005582] text-white shadow-md transition-all duration-300"
+                  className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm bg-blue-600 text-white hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/30 transition-all"
                 >
-                  <FaLinkedin className="text-lg" /> Watch Post
+                  <FaLinkedin size={18} /> Demo
                 </a>
               </div>
             </div>

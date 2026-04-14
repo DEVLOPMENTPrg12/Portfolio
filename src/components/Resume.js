@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Briefcase, GraduationCap, Download, Calendar } from "lucide-react";
 
 export default function Resume({ darkMode }) {
   const experience = [
@@ -6,128 +7,112 @@ export default function Resume({ darkMode }) {
       position: "Marketing & Media Intern",
       company: "Be Artisan, Marrakech",
       year: "June 2025 – Present",
-      details:
-        "Managed social media ad campaigns, created visual content (ads, posters, videos), and optimized performance. Conducted analytics and adapted marketing strategies to maximize reach and return on investment.",
+      details: "Managed social media ad campaigns, created visual content, and optimized marketing strategies to maximize ROI and reach.",
     },
     {
       position: "Intern Developer",
       company: "Laâyoune Hassan I Airport",
-      year: "July – August 2024 (1 month)",
-      details:
-        "Developed a web and mobile application for airport management. Participated in the design, implementation, and optimization of key features to improve internal organization and operational tracking.",
+      year: "July – Aug 2024",
+      details: "Developed a web and mobile application for airport management, focusing on operational tracking and internal organization.",
     },
     {
       position: "Web Developer Intern",
       company: "Commune El Marsa",
-      year: "March 2024 (1 month)",
-      details:
-        "Designed and developed websites dedicated to employee management, integrating features such as leave management and personnel data tracking. Contributed to improving administrative workflow efficiency.",
+      year: "March 2024",
+      details: "Designed employee management systems, integrating leave management and administrative workflow automation.",
     },
   ];
 
   const education = [
     {
-      degree: "Diploma in Digital Development - Full Stack Option",
-      school: "Institut Spécialisé de Gestion et d’Informatique, Laâyoune",
+      degree: "Digital Development - Full Stack Option",
+      school: "ISGI, Laâyoune",
       year: "2022 - 2024",
-      details:
-        "Training focused on full-stack web development including React, Laravel, PHP, and MySQL. Completed several practical projects integrating both front-end and back-end.",
+      details: "Specialized in MERN stack, Laravel, and database architecture. Completed multiple end-to-end web projects.",
     },
     {
       degree: "Baccalaureate - Life and Earth Sciences",
       school: "Lycée Maarik Teggal, Laâyoune",
       year: "2021 - 2022",
-      details:
-        "Scientific background emphasizing natural sciences and basic computing principles.",
+      details: "Scientific background with a focus on natural sciences and introductory computing.",
     },
   ];
 
-  const textColor = darkMode ? "text-gray-300" : "text-gray-800";
-  const subTextColor = darkMode ? "text-gray-400" : "text-gray-600";
-  const borderColor = darkMode ? "border-blue-400" : "border-blue-500";
-  const bgColor = darkMode ? "bg-gray-900" : "bg-gray-100";
-
   return (
-    <section
-      id="resume"
-      className={`${bgColor} ${textColor} py-24 px-6 md:px-20 transition-colors duration-300`}
-    >
-      <h2 className="text-4xl font-bold uppercase mb-16 text-center">
-        Resume
-      </h2>
-
-      {/* EXPERIENCE FIRST */}
-      <motion.div
-        initial={{ y: 40, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        className="mb-20"
-      >
-        <h3 className={`text-3xl font-bold mb-10 text-center ${borderColor}`}>
-          Professional Experience
-        </h3>
-
-        <div className="grid md:grid-cols-2 gap-10">
-          {experience.map((exp, index) => (
-            <div
-              key={index}
-              className={`border-l-4 ${borderColor} pl-6 relative bg-opacity-10 rounded-lg`}
-            >
-              <span
-                className={`absolute -left-3 top-3 w-3 h-3 ${borderColor} rounded-full`}
-              ></span>
-              <h4 className="font-bold text-xl">{exp.position}</h4>
-              <p className={`${subTextColor} text-sm`}>
-                {exp.company} — {exp.year}
-              </p>
-              <p className={`${subTextColor} mt-2`}>{exp.details}</p>
-            </div>
-          ))}
+    <section id="resume" className={`py-24 px-6 md:px-20 transition-colors duration-500 ${
+      darkMode ? "bg-[#0b0f1a]" : "bg-gray-50"
+    }`}>
+      <div className="max-w-7xl mx-auto">
+        
+        {/* Header */}
+        <div className="text-center mb-20">
+          <motion.span initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="text-blue-500 font-bold tracking-[0.2em] uppercase text-sm">History</motion.span>
+          <h2 className={`text-4xl md:text-5xl font-black mt-3 mb-6 ${darkMode ? "text-white" : "text-gray-900"}`}>
+            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400">Resume</span>
+          </h2>
+          <div className="h-1.5 w-20 bg-blue-500 mx-auto rounded-full"></div>
         </div>
-      </motion.div>
 
-      {/* EDUCATION SECOND */}
-      <motion.div
-        initial={{ y: 40, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      >
-        <h3 className={`text-3xl font-bold mb-10 text-center ${borderColor}`}>
-          Education
-        </h3>
-
-        <div className="grid md:grid-cols-2 gap-10">
-          {education.map((edu, index) => (
-            <div
-              key={index}
-              className={`border-l-4 ${borderColor} pl-6 relative rounded-lg`}
-            >
-              <span
-                className={`absolute -left-3 top-3 w-3 h-3 ${borderColor} rounded-full`}
-              ></span>
-              <h4 className="font-bold text-xl">{edu.degree}</h4>
-              <p className={`${subTextColor} text-sm`}>
-                {edu.school} — {edu.year}
-              </p>
-              <p className={`${subTextColor} mt-2`}>{edu.details}</p>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          
+          {/* Experience Timeline */}
+          <motion.div initial={{ x: -30, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} viewport={{ once: true }}>
+            <h3 className={`flex items-center gap-3 text-2xl font-bold mb-10 ${darkMode ? "text-white" : "text-gray-900"}`}>
+              <Briefcase className="text-blue-500" /> Professional Experience
+            </h3>
+            <div className="space-y-12 border-l-2 border-blue-500/20 ml-3">
+              {experience.map((exp, idx) => (
+                <div key={idx} className="relative pl-8 group">
+                  <div className="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.5)] transition-transform group-hover:scale-125"></div>
+                  <div className={`p-6 rounded-2xl border transition-all duration-300 ${
+                    darkMode ? "bg-[#161b2c]/50 border-gray-800 hover:border-blue-500/30 shadow-xl" : "bg-white border-gray-100 hover:border-blue-200 shadow-md"
+                  }`}>
+                    <div className="flex items-center gap-2 text-blue-500 text-xs font-bold mb-2">
+                      <Calendar size={14} /> {exp.year}
+                    </div>
+                    <h4 className="text-lg font-bold mb-1">{exp.position}</h4>
+                    <p className={`text-sm font-semibold mb-3 ${darkMode ? "text-gray-400" : "text-blue-600"}`}>{exp.company}</p>
+                    <p className={`text-sm leading-relaxed ${darkMode ? "text-gray-400" : "text-gray-600"}`}>{exp.details}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </motion.div>
+          </motion.div>
 
-      {/* DOWNLOAD BUTTON */}
-      <div className="text-center mt-16">
-        <a
-          href="/BilalElallam.pdf"
-          className={`py-4 px-8 rounded-lg font-semibold transition-colors duration-300 ${
-            darkMode
-              ? "bg-blue-400 hover:bg-blue-500 text-white"
-              : "bg-blue-500 hover:bg-blue-600 text-white"
-          }`}
-          download
-        >
-          Download CV
-        </a>
+          {/* Education Timeline */}
+          <motion.div initial={{ x: 30, opacity: 0 }} whileInView={{ x: 0, opacity: 1 }} viewport={{ once: true }}>
+            <h3 className={`flex items-center gap-3 text-2xl font-bold mb-10 ${darkMode ? "text-white" : "text-gray-900"}`}>
+              <GraduationCap className="text-blue-500" /> Education
+            </h3>
+            <div className="space-y-12 border-l-2 border-blue-500/20 ml-3">
+              {education.map((edu, idx) => (
+                <div key={idx} className="relative pl-8 group">
+                  <div className="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.5)] transition-transform group-hover:scale-125"></div>
+                  <div className={`p-6 rounded-2xl border transition-all duration-300 ${
+                    darkMode ? "bg-[#161b2c]/50 border-gray-800 hover:border-blue-500/30 shadow-xl" : "bg-white border-gray-100 hover:border-blue-200 shadow-md"
+                  }`}>
+                    <div className="flex items-center gap-2 text-blue-500 text-xs font-bold mb-2">
+                      <Calendar size={14} /> {edu.year}
+                    </div>
+                    <h4 className="text-lg font-bold mb-1">{edu.degree}</h4>
+                    <p className={`text-sm font-semibold mb-3 ${darkMode ? "text-gray-400" : "text-blue-600"}`}>{edu.school}</p>
+                    <p className={`text-sm leading-relaxed ${darkMode ? "text-gray-400" : "text-gray-600"}`}>{edu.details}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Action Button */}
+        <div className="mt-20 text-center">
+          <a
+            href="/BilalElallam (2).pdf"
+            className="inline-flex items-center gap-3 px-10 py-4 bg-blue-600 text-white font-black rounded-xl hover:bg-blue-700 hover:shadow-2xl hover:shadow-blue-500/30 transition-all active:scale-95"
+          >
+            <Download size={20} /> Download Full CV
+          </a>
+        </div>
       </div>
     </section>
   );

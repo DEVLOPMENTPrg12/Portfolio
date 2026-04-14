@@ -3,22 +3,14 @@ import { FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane } from "r
 import { motion } from "framer-motion";
 
 export default function Contact({ darkMode }) {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    // Clear errors on change
-    if (errors[e.target.name]) {
-      setErrors({ ...errors, [e.target.name]: "" });
-    }
+    if (errors[e.target.name]) setErrors({ ...errors, [e.target.name]: "" });
   };
 
   const validateForm = () => {
@@ -40,124 +32,126 @@ export default function Contact({ darkMode }) {
       setErrors(validationErrors);
       return;
     }
-
     setIsSubmitting(true);
-    // Simulate API call (replace with real email service like EmailJS)
+    // Simulate API
     setTimeout(() => {
-      console.log("Form submitted:", formData);
       setSubmitted(true);
       setFormData({ name: "", email: "", subject: "", message: "" });
-      setErrors({});
       setIsSubmitting(false);
-      // Reset success message after 3 seconds
-      setTimeout(() => setSubmitted(false), 3000);
+      setTimeout(() => setSubmitted(false), 4000);
     }, 2000);
   };
 
-  const cardBg = darkMode ? "bg-gray-800" : "bg-white";
-  const hoverBg = darkMode ? "hover:bg-gray-700" : "hover:bg-gray-100";
-  const textSub = darkMode ? "text-gray-300" : "text-gray-700";
-  const inputBg = darkMode ? "bg-gray-700 border-gray-600" : "bg-gray-50 border-gray-300";
-
   const contactLinks = [
-    { icon: <FaMapMarkerAlt />, label: "Laâyoune, Morocco", href: "#" },
-    { icon: <FaPhone />, label: "+212 617 858 094", href: "tel:+212617858094" },
-    { icon: <FaEnvelope />, label: "alallambilal13@gmail.com", href: "mailto:alallambilal13@gmail.com" },
-    { icon: <FaLinkedin />, label: "LinkedIn Profile", href: "https://www.linkedin.com/in/bilal-alallam", target: "_blank" },
+    { icon: <FaMapMarkerAlt />, label: "Location", value: "Laâyoune, Morocco", href: "#" },
+    { icon: <FaPhone />, label: "Phone", value: "+212 617 858 094", href: "tel:+212617858094" },
+    { icon: <FaEnvelope />, label: "Email", value: "alallambilal13@gmail.com", href: "mailto:alallambilal13@gmail.com" },
+    { icon: <FaLinkedin />, label: "LinkedIn", value: "Bilal Elallam", href: "https://www.linkedin.com/in/bilal-alallam", target: "_blank" },
   ];
 
   return (
-    <section id="contact" className={`py-24 ${darkMode ? "bg-gray-900" : "bg-gradient-to-br from-gray-100 to-gray-200"} transition-colors duration-300`}>
-  <div className="container mx-auto px-6 md:px-20 max-w-6xl">
-    {/* Heading */}
-    <motion.div
-      className="text-center mb-16"
-      initial={{ opacity: 0, y: -20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-    >
-      <h2 className="text-4xl md:text-5xl font-bold text-blue-500 dark:text-blue-400 mb-4">
-        Get in Touch
-      </h2>
-      <p className={`text-lg ${textSub} max-w-2xl mx-auto`}>
-        I'm always open to discussing new opportunities, collaborations, or just saying hello. Let's connect!
-      </p>
-    </motion.div>
-
-    {/* Grid: Form Left, Info Right */}
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-      {/* Form Left */}
-      <motion.form
-        onSubmit={handleSubmit}
-        className={`${cardBg} p-8 rounded-xl shadow-lg space-y-6 order-1 lg:order-1`}
-        initial={{ opacity: 0, x: -20 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        viewport={{ once: true }}
-      >
-        <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-6">Send a Message</h3>
-        {/* Inputs */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <input type="text" name="name" placeholder="Your Name *" value={formData.name} onChange={handleChange}
-              className={`w-full ${inputBg} border p-3 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition`} required />
-            {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
-          </div>
-          <div>
-            <input type="email" name="email" placeholder="Your Email *" value={formData.email} onChange={handleChange}
-              className={`w-full ${inputBg} border p-3 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition`} required />
-            {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
-          </div>
+    <section id="contact" className={`py-24 px-6 md:px-20 transition-all duration-500 ${darkMode ? "bg-[#0b0f1a]" : "bg-gray-50"}`}>
+      <div className="max-w-7xl mx-auto">
+        
+        {/* Header */}
+        <div className="text-center mb-16">
+          <motion.span initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="text-blue-500 font-bold tracking-[0.2em] uppercase text-sm">Connection</motion.span>
+          <h2 className={`text-4xl md:text-5xl font-black mt-3 mb-6 ${darkMode ? "text-white" : "text-gray-900"}`}>
+            Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400">Touch</span>
+          </h2>
+          <div className="h-1.5 w-20 bg-blue-500 mx-auto rounded-full"></div>
         </div>
 
-        <input type="text" name="subject" placeholder="Subject" value={formData.subject} onChange={handleChange}
-          className={`w-full ${inputBg} border p-3 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition`} />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          {/* Contact Info (Left - 5 cols) */}
+          <div className="lg:col-span-5 space-y-6">
+            <h3 className={`text-2xl font-bold mb-8 ${darkMode ? "text-white" : "text-gray-900"}`}>Contact Information</h3>
+            {contactLinks.map((link, i) => (
+              <motion.a
+                key={i}
+                href={link.href}
+                target={link.target || "_self"}
+                className={`flex items-center gap-5 p-5 rounded-2xl border transition-all duration-300 group ${
+                  darkMode ? "bg-[#161b2c]/50 border-gray-800 hover:border-blue-500/50" : "bg-white border-gray-100 hover:border-blue-400 shadow-sm"
+                }`}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-500 transition-colors group-hover:bg-blue-500 group-hover:text-white">
+                  {link.icon}
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-widest font-bold opacity-50">{link.label}</p>
+                  <p className={`font-semibold ${darkMode ? "text-gray-200" : "text-gray-700"}`}>{link.value}</p>
+                </div>
+              </motion.a>
+            ))}
+          </div>
 
-        <textarea name="message" placeholder="Message *" value={formData.message} onChange={handleChange} rows="5"
-          className={`w-full ${inputBg} border p-3 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition resize-none`} required></textarea>
-
-        <button type="submit"
-          className="w-full bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 rounded-lg text-sm transition flex items-center justify-center space-x-2">
-          <FaPaperPlane />
-          <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
-        </button>
-
-        {submitted && <p className="text-green-500 text-sm text-center mt-4">Thank you! Your message has been sent successfully.</p>}
-      </motion.form>
-
-      {/* Contact Info Right */}
-      <motion.div
-        className="space-y-6 order-2 lg:order-2"
-        initial={{ opacity: 0, x: 20 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-        viewport={{ once: true }}
-      >
-        <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-6">Contact Information</h3>
-        {contactLinks.map((link, i) => (
-          <motion.a
-            key={i}
-            href={link.href}
-            target={link.target || "_self"}
-            rel={link.target ? "noopener noreferrer" : undefined}
-            className={`${cardBg} p-6 rounded-xl shadow-lg flex items-center space-x-4 ${hoverBg} transition-all duration-300 hover:shadow-xl hover:-translate-y-1`}
-            whileHover={{ scale: 1.02 }}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-            viewport={{ once: true }}
+          {/* Contact Form (Right - 7 cols) */}
+          <motion.div 
+            className={`lg:col-span-7 p-8 md:p-10 rounded-3xl border ${
+              darkMode ? "bg-[#161b2c]/50 border-gray-800" : "bg-white border-gray-100 shadow-2xl shadow-gray-200/50"
+            }`}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
           >
-            <div className="text-3xl text-blue-500 flex-shrink-0">{link.icon}</div>
-            <div>
-              <p className="text-sm md:text-base font-medium text-gray-800 dark:text-white">{link.label}</p>
-            </div>
-          </motion.a>
-        ))}
-      </motion.div>
-    </div>
-  </div>
-</section>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-wider opacity-60 ml-1">Full Name</label>
+                  <input
+                    type="text" name="name" value={formData.name} onChange={handleChange}
+                    className={`w-full p-4 rounded-xl border outline-none transition-all ${
+                      darkMode ? "bg-gray-900/50 border-gray-700 focus:border-blue-500" : "bg-gray-50 border-gray-200 focus:border-blue-500"
+                    }`}
+                    placeholder="Bilal Elallam"
+                  />
+                  {errors.name && <p className="text-red-500 text-[10px] font-bold ml-1">{errors.name}</p>}
+                </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-wider opacity-60 ml-1">Email Address</label>
+                  <input
+                    type="email" name="email" value={formData.email} onChange={handleChange}
+                    className={`w-full p-4 rounded-xl border outline-none transition-all ${
+                      darkMode ? "bg-gray-900/50 border-gray-700 focus:border-blue-500" : "bg-gray-50 border-gray-200 focus:border-blue-500"
+                    }`}
+                    placeholder="example@mail.com"
+                  />
+                  {errors.email && <p className="text-red-500 text-[10px] font-bold ml-1">{errors.email}</p>}
+                </div>
+              </div>
 
+              <div className="space-y-2">
+                <label className="text-xs font-bold uppercase tracking-wider opacity-60 ml-1">Message</label>
+                <textarea
+                  name="message" rows="5" value={formData.message} onChange={handleChange}
+                  className={`w-full p-4 rounded-xl border outline-none transition-all resize-none ${
+                    darkMode ? "bg-gray-900/50 border-gray-700 focus:border-blue-500" : "bg-gray-50 border-gray-200 focus:border-blue-500"
+                  }`}
+                  placeholder="How can I help you?"
+                ></textarea>
+                {errors.message && <p className="text-red-500 text-[10px] font-bold ml-1">{errors.message}</p>}
+              </div>
+
+              <button
+                type="submit" disabled={isSubmitting}
+                className="w-full py-4 rounded-xl bg-blue-600 text-white font-black uppercase tracking-widest text-sm hover:bg-blue-700 hover:shadow-lg hover:shadow-blue-500/30 transition-all flex items-center justify-center gap-3 active:scale-[0.98]"
+              >
+                {isSubmitting ? "Sending..." : <><FaPaperPlane /> Send Message</>}
+              </button>
+
+              {submitted && (
+                <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-green-500 text-sm font-bold text-center mt-4">
+                  ✓ Message sent successfully!
+                </motion.p>
+              )}
+            </form>
+          </motion.div>
+        </div>
+      </div>
+    </section>
   );
 }

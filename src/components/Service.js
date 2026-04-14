@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Code, Palette, Server, Rocket } from "lucide-react"; // ✅ modern icons
+import { Code, Palette, Server, Rocket } from "lucide-react";
 
 export default function Services({ darkMode }) {
   const services = [
@@ -7,90 +7,96 @@ export default function Services({ darkMode }) {
       title: "Web Development",
       description:
         "Building responsive, modern, and high-performance websites using React, Tailwind CSS, and best development practices.",
-      icon: <Code className="w-12 h-12 text-blue-500" />,
+      icon: <Code className="w-10 h-10" />,
+      color: "from-blue-500 to-cyan-400",
     },
     {
       title: "UI/UX Design",
       description:
         "Designing intuitive and visually appealing interfaces with a focus on user-centered experience and accessibility.",
-      icon: <Palette className="w-12 h-12 text-pink-500" />,
+      icon: <Palette className="w-10 h-10" />,
+      color: "from-pink-500 to-rose-400",
     },
     {
       title: "Backend Development",
       description:
-        "Developing secure and scalable back-end systems using Node.js, PHP, and MySQL integration.",
-      icon: <Server className="w-12 h-12 text-green-500" />,
+        "Developing secure and scalable back-end systems using Node.js, Express, and MongoDB integration.",
+      icon: <Server className="w-10 h-10" />,
+      color: "from-green-500 to-emerald-400",
     },
     {
       title: "SEO Optimization",
       description:
         "Boosting your website’s visibility on search engines with advanced SEO strategies and performance enhancements.",
-      icon: <Rocket className="w-12 h-12 text-yellow-500" />,
+      icon: <Rocket className="w-10 h-10" />,
+      color: "from-yellow-500 to-orange-400",
     },
   ];
-
-  const bgSection = darkMode ? "bg-gray-900" : "bg-gray-100";
-  const textColor = darkMode ? "text-white" : "text-gray-900";
-  const textSub = darkMode ? "text-gray-300" : "text-gray-700";
-  const cardBg = darkMode ? "bg-gray-800" : "bg-white";
-  const borderColor = darkMode ? "border-blue-400" : "border-blue-500";
 
   return (
     <section
       id="services"
-      className={`${bgSection} ${textColor} py-24 px-6 md:px-20 transition-colors duration-300`}
+      className={`py-24 px-6 md:px-20 transition-all duration-500 ${
+        darkMode ? "bg-[#0b0f1a]" : "bg-gray-50"
+      }`}
     >
-      {/* Heading */}
-      <div className="text-center pb-12">
-        <motion.h2
-          className={`text-4xl font-bold mb-4 ${
-            darkMode ? "text-blue-400" : "text-blue-500"
-          }`}
-          initial={{ y: -30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.7 }}
-        >
-          Services
-        </motion.h2>
-        <motion.p
-          className={`max-w-2xl mx-auto ${textSub}`}
+      {/* Section Header */}
+      <div className="text-center mb-16">
+        <motion.span 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.7 }}
+          className="text-blue-500 font-bold tracking-[0.2em] uppercase text-sm"
         >
-          I provide high-quality services to design, develop, and grow your
-          digital presence with creative and technical excellence.
-        </motion.p>
+          What I Offer
+        </motion.span>
+        <h2 className={`text-4xl md:text-5xl font-black mt-3 mb-6 ${darkMode ? "text-white" : "text-gray-900"}`}>
+          My <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400">Services</span>
+        </h2>
+        <div className="h-1.5 w-20 bg-blue-500 mx-auto rounded-full"></div>
       </div>
 
       {/* Services Grid */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
         {services.map((service, index) => (
           <motion.div
             key={index}
-            className={`relative p-8 ${cardBg} rounded-2xl border ${borderColor} shadow-lg hover:shadow-2xl transition-all duration-500 group overflow-hidden`}
-            initial={{ y: 50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: index * 0.2 }}
-            whileHover={{ scale: 1.05 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            className={`group relative p-8 rounded-3xl transition-all duration-500 border ${
+              darkMode 
+                ? "bg-[#161b2c]/50 border-gray-800 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10" 
+                : "bg-white border-gray-100 hover:border-blue-400 hover:shadow-xl shadow-gray-200/50"
+            }`}
           >
-            {/* Animated background glow */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-all duration-500 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 blur-3xl"></div>
+            {/* Animated Glow on Hover */}
+            <div className={`absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 rounded-3xl bg-gradient-to-br ${service.color}`}></div>
 
-            {/* Icon */}
-            <div className="flex justify-center mb-6">{service.icon}</div>
+            {/* Icon Circle */}
+            <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3 bg-gradient-to-br ${service.color} text-white shadow-lg`}>
+              {service.icon}
+            </div>
 
-            {/* Title */}
-            <h3
-              className={`text-xl font-semibold mb-3 text-center ${
-                darkMode ? "text-blue-400" : "text-blue-600"
-              }`}
-            >
+            {/* Content */}
+            <h3 className={`text-xl font-bold mb-4 transition-colors duration-300 ${
+              darkMode ? "text-white group-hover:text-blue-400" : "text-gray-900 group-hover:text-blue-600"
+            }`}>
               {service.title}
             </h3>
 
-            {/* Description */}
-            <p className={`${textSub} text-center`}>{service.description}</p>
+            <p className={`text-sm leading-relaxed transition-colors duration-300 ${
+              darkMode ? "text-gray-400 group-hover:text-gray-300" : "text-gray-600"
+            }`}>
+              {service.description}
+            </p>
+
+            {/* Subtle Arrow Icon */}
+            <div className={`mt-6 flex items-center gap-2 text-xs font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all duration-500 translate-x-[-10px] group-hover:translate-x-0 ${
+              darkMode ? "text-blue-400" : "text-blue-600"
+            }`}>
+              Learn More <span className="text-lg">→</span>
+            </div>
           </motion.div>
         ))}
       </div>
