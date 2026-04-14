@@ -16,134 +16,92 @@ export default function Navbar({ darkMode, setDarkMode }) {
     { href: "#about", label: "About" },
     { href: "#services", label: "Services" },
     { href: "#projects", label: "Projects" },
-       { href: "#skills", label: "Skills" },
+    { href: "#skills", label: "Skills" },
     { href: "#contact", label: "Contact" },
- 
-
   ];
 
   return (
     <nav
-      className={`fixed w-full top-0 left-0 z-50 transition-shadow duration-300 ${
-        scrolled ? "shadow-xl" : ""
-      } bg-white dark:bg-gray-900 text-gray-900 dark:text-white`}
+      className={`fixed w-full top-0 left-0 z-50 transition-all duration-300 ${
+        scrolled 
+          ? "bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-lg py-3" 
+          : "bg-white dark:bg-gray-900 py-5"
+      } text-gray-900 dark:text-white`}
     >
-      <div className="container mx-auto flex justify-between items-center px-6 py-4">
-        <h1 className="text-2xl font-extrabold text-blue-500 dark:text-blue-400 hover:text-blue-400 dark:hover:text-blue-300 transition-colors cursor-pointer">
+      <div className="container mx-auto flex justify-between items-center px-6">
+        {/* Smiya kima kant */}
+        <h1 className="text-2xl font-extrabold text-blue-500 dark:text-blue-400 cursor-pointer">
           Bilal Elallam
         </h1>
 
-        <ul className="hidden md:flex space-x-8 text-lg">
-          {menuItems.map((item) => (
-            <li key={item.href}>
-              <a
-                href={item.href}
-                className="hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300 font-medium"
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center space-x-8">
+          <ul className="flex space-x-8 text-lg font-medium">
+            {menuItems.map((item) => (
+              <li key={item.href}>
+                <a
+                  href={item.href}
+                  className="hover:text-blue-500 dark:hover:text-blue-400 transition-colors"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
 
-        <div className="flex items-center space-x-4">
-          {/* Toggle Dark/Light avec Hilal + Glow */}
-          <div
-            className={`hidden md:flex items-center cursor-pointer w-16 h-8 rounded-full p-1 transition-colors duration-500 ${
-              darkMode ? "bg-blue-500" : "bg-yellow-400"
-            }`}
-            onClick={() => setDarkMode(!darkMode)}
-          >
-            <div
-              className={`relative bg-white w-6 h-6 rounded-full shadow-lg flex items-center justify-center transform transition-transform duration-500 ${
-                darkMode ? "translate-x-8" : "translate-x-0"
-              }`}
-            >
-              {/* Glow effect */}
-              <span
-                className={`absolute w-10 h-10 rounded-full ${
-                  darkMode ? "bg-blue-400/50 animate-ping" : "bg-yellow-400/50 animate-ping"
-                }`}
-              ></span>
-
-              {/* Icon */}
-              {darkMode ? (
-                <FaMoon className="text-blue-700 z-10" />
-              ) : (
-                <FaSun className="text-yellow-500 z-10" />
-              )}
-            </div>
-          </div>
-
-          {/* Mobile Hamburger */}
+          {/* Toggle Desktop */}
           <button
-            className="md:hidden flex flex-col justify-between w-6 h-5 focus:outline-none"
+            onClick={() => setDarkMode(!darkMode)}
+            className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-yellow-500 dark:text-blue-400 transition-all"
+          >
+            {darkMode ? <FaSun size={20} /> : <FaMoon size={20} />}
+          </button>
+        </div>
+
+        {/* Mobile Controls */}
+        <div className="flex items-center space-x-4 md:hidden">
+          {/* Toggle Mobile - Bayn dima */}
+          <button
+            onClick={() => setDarkMode(!darkMode)}
+            className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 transition-all"
+          >
+            {darkMode ? (
+              <FaSun className="text-yellow-500" size={22} />
+            ) : (
+              <FaMoon className="text-blue-600" size={22} />
+            )}
+          </button>
+
+          {/* Hamburger Menu */}
+          <button
+            className="flex flex-col justify-around w-6 h-6 focus:outline-none"
             onClick={() => setIsOpen(!isOpen)}
           >
-            <span
-              className={`block h-0.5 w-full bg-current transform transition duration-300 ${
-                isOpen ? "rotate-45 translate-y-2" : ""
-              }`}
-            />
-            <span
-              className={`block h-0.5 w-full bg-current transition-opacity duration-300 ${
-                isOpen ? "opacity-0" : "opacity-100"
-              }`}
-            />
-            <span
-              className={`block h-0.5 w-full bg-current transform transition duration-300 ${
-                isOpen ? "-rotate-45 -translate-y-2" : ""
-              }`}
-            />
+            <span className={`w-6 h-0.5 bg-current transition-all ${isOpen ? 'rotate-45 translate-y-2' : ''}`} />
+            <span className={`w-6 h-0.5 bg-current transition-all ${isOpen ? 'opacity-0' : ''}`} />
+            <span className={`w-6 h-0.5 bg-current transition-all ${isOpen ? '-rotate-45 -translate-y-2' : ''}`} />
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Dropdown */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ${
-          isOpen ? "max-h-64 py-4" : "max-h-0"
-        } bg-gray-100 dark:bg-gray-800`}
+        className={`md:hidden absolute w-full left-0 bg-white dark:bg-gray-900 transition-all duration-300 ease-in-out border-b border-gray-200 dark:border-gray-800 ${
+          isOpen ? "top-full opacity-100" : "top-[-400px] opacity-0 pointer-events-none"
+        }`}
       >
-        <ul className="flex flex-col items-center space-y-4">
+        <ul className="flex flex-col items-center py-8 space-y-6">
           {menuItems.map((item) => (
             <li key={item.href}>
               <a
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="text-lg hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300 font-medium"
+                className="text-xl font-semibold hover:text-blue-500 dark:hover:text-blue-400"
               >
                 {item.label}
               </a>
             </li>
           ))}
-
-          <li>
-            {/* Mobile toggle */}
-            <div
-              className={`flex items-center cursor-pointer w-16 h-8 rounded-full p-1 transition-colors duration-500 ${
-                darkMode ? "bg-blue-500" : "bg-yellow-400"
-              }`}
-              onClick={() => setDarkMode(!darkMode)}
-            >
-              <div
-                className={`relative bg-white w-6 h-6 rounded-full shadow-lg flex items-center justify-center transform transition-transform duration-500 ${
-                  darkMode ? "translate-x-8" : "translate-x-0"
-                }`}
-              >
-                <span
-                  className={`absolute w-10 h-10 rounded-full ${
-                    darkMode ? "bg-blue-400/50 animate-ping" : "bg-yellow-400/50 animate-ping"
-                  }`}
-                ></span>
-                {darkMode ? (
-                  <FaMoon className="text-blue-700 z-10" />
-                ) : (
-                  <FaSun className="text-yellow-500 z-10" />
-                )}
-              </div>
-            </div>
-          </li>
         </ul>
       </div>
     </nav>
