@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa"; // Beddelt l-icon l Linke
 const projects = [
   {
     title: "LOGISTICS PRO",
-    category: ["MERN Stack", "RBAC", "Tailwind CSS"],
+    category: ["React.js", "Node.js", "Express.js", "MongoDB ","Tailwind CSS"],
     description:
       "A comprehensive logistics solution with a dual-engine architecture: an Admin Command Center for total visibility and a Driver's Digital Hub for simplified delivery updates and earnings tracking.",
     image: "/Macbook-Air-localhost.png",
