@@ -1,33 +1,33 @@
 import { motion } from "framer-motion";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa"; // Beddelt l-icon l LinkedIn
 
 const projects = [
   {
-    title: "FindYourHouse",
-    category: ["React.js", "Firebase"],
+    title: "LOGISTICS PRO",
+    category: ["MERN Stack", "RBAC", "Tailwind CSS"],
     description:
-      "FindYourHouse is a modern web application built with React.js and Firebase, designed to help users search, filter, and book rental houses across different cities in Morocco.",
-    image: "/Macbook-Air-localhost (2).png",
-    github: "https://github.com/DEVLOPMENTPrg12/find-your-house",
-    live: "https://find-your-house-udx1.vercel.app/",
+      "A comprehensive logistics solution with a dual-engine architecture: an Admin Command Center for total visibility and a Driver's Digital Hub for simplified delivery updates and earnings tracking.",
+    image: "/Macbook-Air-localhost.png",
+    github: "https://github.com/DEVLOPMENTPrg12/LOGISTICS-PRO",
+    linkedin: "https://www.linkedin.com/posts/bilal-el-allam-468131371_fullstackdeveloper-webdevelopment-logisticstech-activity-7441971308332011520-Fbg6?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFwImFABm3dtZnPaXDeqSfh5RUyT9k84l4Y", // Zid l-link d l-post hna
   },
   {
     title: "Bilal Clothing",
     category: ["React.js", "Node.js", "Express.js", "MongoDB"],
     description:
-      "Bilal Clothing is a full-featured e-commerce website for clothing, built with React.js for the frontend and Node.js + Express.js for the backend, using MongoDB as the database. Includes a professional Admin Dashboard.",
+      "A full-featured e-commerce platform for clothing, featuring a sleek user interface and a professional admin dashboard for managing inventory and orders.",
     image: "/Macbook-Air-bilal-clothing-e8zn.vercel.app.png",
     github: "https://github.com/DEVLOPMENTPrg12/Bilal-Clothing",
-    live: "https://bilal-clothing-e8zn.vercel.app/",
+    linkedin: "#", 
   },
   {
     title: "Supermarket Management",
     category: ["React.js", "Node.js", "Express.js", "MongoDB"],
     description:
-      "A complete stock and sales management system featuring a dashboard, POS, inventory with barcode support, supplier/client tracking, and role-based authentication.",
+      "Complete stock and sales management system featuring a POS interface, barcode support, supplier tracking, and role-based authentication.",
     image: "/Macbook-Air-localhost (3).png",
     github: "https://github.com/DEVLOPMENTPrg12/supermarket-management",
-    live: "https://bilal-clothing-e8zn.vercel.app/",
+    linkedin: "https://www.linkedin.com/posts/bilal-el-allam-468131371_reactjs-nodejs-mongodb-activity-7402816078755561472-d3w-?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFwImFABm3dtZnPaXDeqSfh5RUyT9k84l4Y",
   }
 ];
 
@@ -57,8 +57,7 @@ export default function Projects({ darkMode }) {
           My Projects
         </h2>
         <p className={`${subText} relative z-10 max-w-2xl mx-auto`}>
-          Here are some of the projects I've worked on — combining creativity,
-          modern UI, and solid code.
+          Check out my work—from full-stack systems to modern web applications.
         </p>
       </div>
 
@@ -78,7 +77,7 @@ export default function Projects({ darkMode }) {
             <div className="relative w-full h-52 md:h-60 overflow-hidden bg-black/5">
               <img
                 src={project.image}
-                alt={`Screenshot of ${project.title}`}
+                alt={project.title}
                 className="w-full h-full object-contain"
               />
             </div>
@@ -90,12 +89,11 @@ export default function Projects({ darkMode }) {
                   {project.title}
                 </h3>
 
-                {/* Tech stack badges */}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.category.map((tech, idx) => (
                     <span
                       key={idx}
-                      className="text-[10px] font-bold px-2 py-1 rounded-md bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 uppercase tracking-tighter"
+                      className="text-[10px] font-bold px-2 py-1 rounded-md bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 uppercase"
                     >
                       {tech}
                     </span>
@@ -107,7 +105,7 @@ export default function Projects({ darkMode }) {
                 </p>
               </div>
 
-              {/* Buttons Area - Always at the bottom */}
+              {/* Buttons Area */}
               <div className="flex justify-between items-center gap-4 mt-4 pt-4 border-t border-gray-700/10 dark:border-gray-200/10">
                 <a
                   href={project.github}
@@ -122,16 +120,15 @@ export default function Projects({ darkMode }) {
                   <FaGithub className="text-lg" /> Code
                 </a>
                 
-                {project.live && (
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 flex-1 px-4 py-2.5 rounded-xl text-sm font-semibold bg-blue-500 hover:bg-blue-600 text-white shadow-md shadow-blue-500/20 transition-all duration-300"
-                  >
-                    <FaExternalLinkAlt className="text-xs" /> Live
-                  </a>
-                )}
+                {/* LinkedIn Button f blas l-Live Demo */}
+                <a
+                  href={project.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 flex-1 px-4 py-2.5 rounded-xl text-sm font-semibold bg-[#0077b5] hover:bg-[#005582] text-white shadow-md transition-all duration-300"
+                >
+                  <FaLinkedin className="text-lg" /> Watch Post
+                </a>
               </div>
             </div>
           </motion.div>
