@@ -1,6 +1,6 @@
 import { useState } from "react";
 // Zdna l-icons li naqsin f-l-import bach l-build may-tbloquash
-import { FaGithub, FaLinkedin, FaEnvelope, FaPaperPlane, FaArrowUp } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 export default function Footer({ darkMode }) {
@@ -29,7 +29,6 @@ export default function Footer({ darkMode }) {
   const socialLinks = [
     { icon: <FaGithub />, href: "https://github.com/DEVLOPMENTPrg12", label: "GitHub" },
     { icon: <FaLinkedin />, href: "https://www.linkedin.com/in/bilal-alallam", label: "LinkedIn" },
-    { icon: <FaEnvelope />, href: "mailto:alallambilal13@gmail.com", label: "Email" },
   ];
 
   return (
@@ -107,7 +106,6 @@ export default function Footer({ darkMode }) {
                 type="submit"
                 className="absolute right-2 top-2 bottom-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
               >
-                <FaPaperPlane size={14} />
               </button>
             </form>
             {newsletterSubmitted && (
@@ -134,7 +132,6 @@ export default function Footer({ darkMode }) {
             <div className={`w-10 h-10 rounded-full flex items-center justify-center border transition-all ${
               darkMode ? "border-gray-800 group-hover:border-blue-500 group-hover:bg-blue-500 group-hover:text-white" : "border-gray-200 group-hover:border-blue-500 group-hover:bg-blue-500 group-hover:text-white"
             }`}>
-              <FaArrowUp />
             </div>
           </button>
         </div>
