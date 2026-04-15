@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { FaLinkedin, FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaArrowUp, FaPaperPlane } from "react-icons/fa";
+// Zdna l-icons li naqsin f-l-import bach l-build may-tbloquash
+import { FaGithub, FaLinkedin, FaEnvelope, FaPaperPlane, FaArrowUp } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 export default function Footer({ darkMode }) {
@@ -39,14 +40,14 @@ export default function Footer({ darkMode }) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           
           {/* Brand Section */}
-          <div className="space-y-6">
-            <h2 className="text-2xl font-black tracking-tighter">
+          <div className="space-y-6 text-center md:text-left">
+            <h2 className="text-2xl font-black tracking-tighter italic">
               BILAL <span className="text-blue-500">ELALLAM</span>
             </h2>
             <p className={`text-sm leading-relaxed ${darkMode ? "text-gray-400" : "text-gray-600"}`}>
               Full Stack Web Developer crafting high-performance digital experiences. Transforming complex problems into elegant, scalable solutions.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-4 justify-center md:justify-start">
               {socialLinks.map((social, i) => (
                 <a
                   key={i}
@@ -65,7 +66,7 @@ export default function Footer({ darkMode }) {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="text-center md:text-left">
             <h3 className={`text-sm font-black uppercase tracking-[0.2em] mb-6 ${darkMode ? "text-white" : "text-gray-900"}`}>Navigation</h3>
             <ul className="space-y-4">
               {footerLinks.map((link) => (
@@ -78,8 +79,8 @@ export default function Footer({ darkMode }) {
             </ul>
           </div>
 
-          {/* Services (Short list) */}
-          <div>
+          {/* Expertise */}
+          <div className="text-center md:text-left">
             <h3 className={`text-sm font-black uppercase tracking-[0.2em] mb-6 ${darkMode ? "text-white" : "text-gray-900"}`}>Expertise</h3>
             <ul className="space-y-4 text-sm">
               {["MERN Stack", "UI/UX Design", "Backend Systems", "SEO Optimization"].map((item) => (
@@ -89,9 +90,9 @@ export default function Footer({ darkMode }) {
           </div>
 
           {/* Newsletter */}
-          <div className="space-y-6">
+          <div className="space-y-6 text-center md:text-left">
             <h3 className={`text-sm font-black uppercase tracking-[0.2em] mb-6 ${darkMode ? "text-white" : "text-gray-900"}`}>Stay Updated</h3>
-            <form onSubmit={handleNewsletterSubmit} className="relative">
+            <form onSubmit={handleNewsletterSubmit} className="relative max-w-xs mx-auto md:mx-0">
               <input
                 type="email"
                 value={newsletterEmail}
