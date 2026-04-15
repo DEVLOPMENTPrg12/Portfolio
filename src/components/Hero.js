@@ -128,7 +128,7 @@ export default function Hero({ darkMode }) {
           >
             <div className="flex items-center gap-3">
               <div className="w-3 h-3 bg-green-500 rounded-full animate-ping" />
-              <span className="text-sm font-bold tracking-tight">MERN </span>
+              <span className="text-sm font-bold tracking-tight">MERN Expert</span>
             </div>
           </motion.div>
         </div>
