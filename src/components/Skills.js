@@ -1,33 +1,43 @@
 import { motion } from "framer-motion";
+import { 
+  FaReact, FaNodeJs, FaGitAlt, FaDatabase, FaCode, FaServer, FaPenNib, FaFileWord 
+} from "react-icons/fa";
+import { SiTailwindcss, SiMongodb, SiMysql, SiPostman, SiAdobephotoshop, SiCanva } from "react-icons/si";
 
 const skillCategories = [
   {
     category: "Front-End Development",
+    icon: <FaCode />,
     skills: [
-      { name: "React.js", level: 88, color: "from-blue-500 to-cyan-400" },
-      { name: "Tailwind CSS", level: 90, color: "from-blue-400 to-indigo-500" },
+      { name: "React.js", icon: <FaReact className="text-blue-400" />, tag: "Expert" },
+      { name: "Tailwind CSS", icon: <SiTailwindcss className="text-cyan-400" />, tag: "Advanced" },
+      { name: "Responsive Design", icon: <div className="w-2 h-2 bg-blue-500 rounded-full" />, tag: "Fluent" },
     ],
   },
   {
     category: "Back-End & Databases",
+    icon: <FaServer />,
     skills: [
-      { name: "Node.js", level: 80, color: "from-green-500 to-emerald-400" },
-      { name: "SQL / MySQL", level: 85, color: "from-blue-600 to-sky-400" },
-      { name: "MongoDB", level: 75, color: "from-emerald-600 to-green-400" },
+      { name: "Node.js", icon: <FaNodeJs className="text-green-500" />, tag: "Advanced" },
+      { name: "SQL / MySQL", icon: <SiMysql className="text-blue-600" />, tag: "Expert" },
+      { name: "MongoDB", icon: <SiMongodb className="text-emerald-500" />, tag: "Advanced" },
     ],
   },
   {
-    category: "Tools & Collaboration",
+    category: "Tools & Workflow",
+    icon: <FaGitAlt />,
     skills: [
-      { name: "Git & GitHub", level: 90, color: "from-gray-700 to-gray-900" },
-      { name: "Postman", level: 85, color: "from-orange-500 to-red-400" },
+      { name: "Git & GitHub", icon: <FaGitAlt className="text-orange-600" />, tag: "Proficient" },
+      { name: "Postman API", icon: <SiPostman className="text-orange-500" />, tag: "Advanced" },
+      { name: "RESTful APIs", icon: <div className="w-2 h-2 bg-orange-500 rounded-full" />, tag: "Expert" },
     ],
   },
   {
-    category: "Design & Office",
+    category: "Design & Professional",
+    icon: <FaPenNib />,
     skills: [
-      { name: "Photoshop / Canva", level: 85, color: "from-pink-500 to-purple-500" },
-      { name: "Microsoft Office", level: 90, color: "from-blue-700 to-blue-500" },
+      { name: "Photoshop / Canva", icon: <SiAdobephotoshop className="text-blue-800" />, tag: "Creative" },
+      { name: "MS Office Suite", icon: <FaFileWord className="text-blue-700" />, tag: "Specialist" },
     ],
   },
 ];
@@ -47,61 +57,55 @@ export default function Skills({ darkMode }) {
           whileInView={{ opacity: 1 }}
           className="text-blue-500 font-bold tracking-[0.2em] uppercase text-sm"
         >
-          Expertise
+          My Stack
         </motion.span>
         <h2 className={`text-4xl md:text-5xl font-black mt-3 mb-6 ${darkMode ? "text-white" : "text-gray-900"}`}>
-          Technical <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400">Skills</span>
+          Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400">Expertise</span>
         </h2>
         <div className="h-1.5 w-20 bg-blue-500 mx-auto rounded-full"></div>
       </div>
 
-      {/* Categories Grid */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+      {/* Skills Grid */}
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {skillCategories.map((cat, idx) => (
           <motion.div 
             key={idx}
-            initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className={`p-8 rounded-3xl border ${
+            transition={{ delay: idx * 0.1 }}
+            className={`p-6 rounded-3xl border transition-all duration-300 hover:scale-[1.02] ${
               darkMode 
-                ? "bg-[#161b2c]/50 border-gray-800 shadow-2xl shadow-blue-500/5" 
-                : "bg-white border-gray-100 shadow-xl shadow-gray-200/50"
+                ? "bg-[#161b2c]/50 border-gray-800 hover:border-blue-500/50 shadow-2xl" 
+                : "bg-white border-gray-100 hover:border-blue-300 shadow-xl"
             }`}
           >
-            <h3 className={`text-xl font-bold mb-8 flex items-center gap-3 ${
-              darkMode ? "text-blue-400" : "text-blue-600"
+            <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-6 text-2xl ${
+              darkMode ? "bg-blue-500/10 text-blue-400" : "bg-blue-50 text-blue-600"
             }`}>
-              <span className="w-8 h-1 bg-current rounded-full"></span>
+              {cat.icon}
+            </div>
+
+            <h3 className={`text-lg font-bold mb-6 ${darkMode ? "text-white" : "text-gray-900"}`}>
               {cat.category}
             </h3>
 
-            <div className="space-y-8">
+            <div className="space-y-4">
               {cat.skills.map((skill, index) => (
-                <div key={index} className="group">
-                  <div className="flex justify-between items-end mb-3">
-                    <span className={`font-bold tracking-wide transition-colors ${
-                      darkMode ? "text-gray-200 group-hover:text-white" : "text-gray-700 group-hover:text-black"
-                    }`}>
+                <div key={index} className="flex items-center justify-between group">
+                  <div className="flex items-center gap-3">
+                    <span className="text-xl transition-transform group-hover:scale-110">
+                      {skill.icon}
+                    </span>
+                    <span className={`text-sm font-medium ${darkMode ? "text-gray-300" : "text-gray-600"}`}>
                       {skill.name}
                     </span>
-                    <span className="text-xs font-black opacity-50">{skill.level}%</span>
                   </div>
-                  
-                  {/* Modern Thin Progress Bar */}
-                  <div className={`w-full h-2 rounded-full overflow-hidden ${
-                    darkMode ? "bg-gray-800" : "bg-gray-200"
+                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider ${
+                    darkMode ? "bg-gray-800 text-blue-400" : "bg-gray-100 text-blue-600"
                   }`}>
-                    <motion.div
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${skill.level}%` }}
-                      transition={{ duration: 1.5, ease: "easeOut" }}
-                      className={`h-full rounded-full bg-gradient-to-r ${skill.color} relative shadow-[0_0_10px_rgba(59,130,246,0.5)]`}
-                    >
-                      {/* Animated Glow Tip */}
-                      <div className="absolute right-0 top-0 h-full w-2 bg-white/30 blur-[2px]"></div>
-                    </motion.div>
-                  </div>
+                    {skill.tag}
+                  </span>
                 </div>
               ))}
             </div>

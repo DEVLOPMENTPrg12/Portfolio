@@ -65,9 +65,8 @@ export default function About({ darkMode }) {
           </div>
 
           <p className={`text-lg leading-relaxed ${darkMode ? "text-gray-400" : "text-gray-600"}`}>
-            I’m a passionate <span className="text-blue-500 font-semibold">Full Stack Web Developer</span> specializing in building modern, high-performance web applications. I focus on creating clean, maintainable code using the <span className="italic">MERN Stack</span> and delivering seamless user experiences that transform ideas into scalable digital products.
-          </p>
-
+  I’m a passionate <span className="text-blue-500 font-semibold">Full Stack Web Developer</span> specializing in building modern, high-performance web applications. I focus on creating clean, maintainable code using <span className="italic">Modern Web Technologies</span> and delivering seamless user experiences that transform ideas into scalable digital products.
+</p>
           {/* Optimized Info Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {info.map((item, index) => (

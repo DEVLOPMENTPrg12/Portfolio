@@ -58,7 +58,7 @@ export default function Hero({ darkMode }) {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.7 }}
         >
-          Full Stack Web Developer
+          Web Developer
         </motion.h2>
 
         <motion.p
@@ -107,7 +107,7 @@ export default function Hero({ darkMode }) {
         transition={{ duration: 1, ease: "easeOut" }}
       >
         <div className="relative group">
-          {/* Animated Gradient Border - Pro look */}
+          {/* Animated Gradient Border */}
           <div className="absolute -inset-1 rounded-3xl bg-gradient-to-tr from-blue-600 to-indigo-400 opacity-75 blur transition duration-1000 group-hover:duration-200 group-hover:opacity-100 animate-pulse"></div>
           
           <div className={`relative p-2 rounded-3xl ${darkMode ? "bg-[#0b1120]" : "bg-white"}`}>
@@ -118,7 +118,7 @@ export default function Hero({ darkMode }) {
             />
           </div>
           
-          {/* Floating Badge with glassmorphism */}
+          {/* Updated Floating Badge */}
           <motion.div 
             className={`absolute -bottom-6 -right-6 p-4 rounded-2xl shadow-xl backdrop-blur-md border ${
               darkMode ? "bg-slate-800/80 border-slate-700" : "bg-white/80 border-slate-200"
@@ -128,7 +128,7 @@ export default function Hero({ darkMode }) {
           >
             <div className="flex items-center gap-3">
               <div className="w-3 h-3 bg-green-500 rounded-full animate-ping" />
-              <span className="text-sm font-bold tracking-tight">MERN Expert</span>
+              <span className="text-sm font-bold tracking-tight">Full Stack Dev</span>
             </div>
           </motion.div>
         </div>
